@@ -5,22 +5,24 @@ import javafx.scene.control.Label;
 import sample.model.DyV;
 
 import java.awt.*;
+import java.util.Random;
 
 public class divideYVencerasController {
 
     @FXML
     private Label lResultado;
 
-    /*public void initialize(){
-        int n=(int)Math.random()*(50-10+1)+10;
+    public void initialize(){
+        Random random=new Random();
+        int n= random.nextInt(40)+10;
         int[] vector=new int[n];
         for (int i=0;i<n;i++){
-            vector[i]=(int)Math.random()*(100-1+1)+1;
+            vector[i]=random.nextInt(100)+1;
         }
 
         DyV dvy=new DyV();
         String respuesta=dvy.sortMergeIterativo(vector);
 
         lResultado.setText(respuesta);
-    }*/
+    }
 }
