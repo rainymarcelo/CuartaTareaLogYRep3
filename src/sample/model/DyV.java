@@ -9,18 +9,40 @@ public class DyV {
         int[] left=new int[mitadTamano];
         int[] right=new int[tamano-mitadTamano];
         for (int i=0;i<left.length;i++){
-
+            left[i]=vector[i];
         }
+        for (int i=0;i<right.length;i++){
+            right[i]=vector[i+mitadTamano];
+        }
+
         int izq;
-        for (int size=1;size<=tamano-1;size=size*2){
+        for (int size=1;size<=tamano-1;size=size*2){//union
             for (izq=0;izq<=tamano-1;izq+=size*2){
                 int mitad=Math.min(izq+size-1,tamano-1);
                 int der=Math.min(izq+(2*size)-1,tamano-1);
-                pasoAnterior=print(vector);
                 merge(vector,izq,mitad,der);
             }
         }
-        String end="El tamaño del vertor es de: "+tamano+"\n"+"El paso anterior es:\n"+pasoAnterior+"\nEl resultado es:\n"+print(vector);
+
+        int l;
+        for (int sizel=1;sizel<=left.length-1;sizel=sizel*2){//merge izquierdo
+            for (l=0;l<=left.length-1;l+=sizel*2){
+                int mitad=Math.min(l+sizel-1,left.length-1);
+                int der=Math.min(l+(2*sizel)-1,left.length-1);
+                merge(left,l,mitad,der);
+            }
+        }
+
+        int d;
+        for (int size=1;size<=right.length-1;size=size*2){//merge derecho
+            for (d=0;d<=right.length-1;d+=size*2){
+                int mitad=Math.min(d+size-1,right.length-1);
+                int der=Math.min(d+(2*size)-1,right.length-1);
+                merge(right,d,mitad,der);
+            }
+        }
+
+        String end="El tamaño del vertor es de: "+tamano+"\n"+"El paso anterior es:\n"+print(left)+print(right)+"\nEl resultado es:\n"+print(vector);
         return end;
     }
 
