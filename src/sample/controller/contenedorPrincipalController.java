@@ -20,8 +20,8 @@ public class contenedorPrincipalController {
             AnchorPane registrarTrabajador = FXMLLoader
                     .load(getClass().getResource("../view/divide-venceras.fxml"));
             this.contenedorPrincipal.setCenter(registrarTrabajador);
-            this.primaryStage.setWidth(500);
-            this.primaryStage.setHeight(350);
+            this.primaryStage.setWidth(850);
+            this.primaryStage.setHeight(700);
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }

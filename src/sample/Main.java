@@ -16,7 +16,7 @@ public class Main extends Application {
         contenedorPrincipalController controller=loader.getController();
         controller.setPrimaryStage(primaryStage);
         primaryStage.setTitle("Cuarta tarea Log Y Rep 3");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setScene(new Scene(root, 500, 275));
         primaryStage.show();
     }
 
